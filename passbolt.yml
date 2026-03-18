@@ -9,7 +9,6 @@ services:
       - DATASOURCES_DEFAULT_DATABASE=${MYSQL_DB:-passbolt-db}
       - APP_DEFAULT_LOCALE=de_DE
       - APP_DEFAULT_TIMEZONE=Europe/Berlin
-      - PASSBOLT_SSL_FORCE=true
       - PASSBOLT_SECURITY_PROXIES_ACTIVE=true
     volumes:
       - "gpg_volume:/etc/passbolt/gpg"
