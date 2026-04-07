@@ -24,7 +24,7 @@ services:
       - /usr/bin/wait-for.sh
       - "-t"
       - "0"
-      - ${DATASOURCE_DNS_NAME}:5432
+      - ${POSTGRES_DNS_NAME}:5432
       - "--"
       - /docker-entrypoint.sh
     healthcheck:
