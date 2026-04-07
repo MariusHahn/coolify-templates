@@ -3,6 +3,7 @@ services:
     image: passbolt/passbolt:5.10.0-1-ce
     environment:
       - APP_FULL_BASE_URL=${SERVICE_URL_PASSBOLT}
+      - DATASOURCE_DNS_NAME=${POSTGRES_DNS_NAME}
       - DATASOURCES_DEFAULT_ENCODING="utf8"
       - DATASOURCES_DEFAULT_DRIVER=Cake\Database\Driver\Postgres
       - DATASOURCES_DEFAULT_URL=${POSTGRES_CONNECTION_STRING}
@@ -23,7 +24,7 @@ services:
       - /usr/bin/wait-for.sh
       - "-t"
       - "0"
-      - ${POSTGRES_DNS_NAME}:5432
+      - ${DATASOURCE_DNS_NAME}:5432
       - "--"
       - /docker-entrypoint.sh
     depends_on:
