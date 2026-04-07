@@ -27,9 +27,6 @@ services:
       - ${DATASOURCE_DNS_NAME}:5432
       - "--"
       - /docker-entrypoint.sh
-    depends_on:
-      mariadb:
-        condition: service_healthy
     healthcheck:
       test: ["CMD", "curl", "-f", "http://127.0.0.1:80"]
       interval: 5s
