@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  duplicati:
+    image: duplicati/duplicati:latest
+    restart: unless-stopped
+    volumes:
+      - /var/lib/docker/volumes:/source:ro
+      - duplicati-config:/config
+    environment:
+    PUID: "1000"
+    PGID: "1000"
+    TZ: "UTC"
+    command: 
+      - "duplicati-server" 
+      - "--webservice-port=80"
+      - "--no-hosted-server"
