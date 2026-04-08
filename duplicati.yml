@@ -7,7 +7,7 @@ services:
       - SERVICE_URL_DUPLICATI_8200
       - PUID=1000
       - PGID=1000
-      - TZ=${TZ:-Europe/London}
+      - TZ=${TZ:-Europe/Berlin}
       - SETTINGS_ENCRYPTION_KEY=${SERVICE_PASSWORD_ENCRYPT}
       - DUPLICATI__WEBSERVICE_PASSWORD=${SERVICE_PASSWORD_WEB}
     volumes:
