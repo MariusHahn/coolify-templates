@@ -8,9 +8,10 @@ services:
       - /var/lib/docker/volumes:/source:ro
       - duplicati-config:/config
     environment:
-    PUID: "1000"
-    PGID: "1000"
-    TZ: "UTC"
+      - PUID="1000"
+      - PGID="1000"
+      - TZ="Europe/Berlin"
+      - DUPLICATI__WEBSERVICE_PASSWORD
     command: 
       - "duplicati-server" 
       - "--webservice-port=80"
