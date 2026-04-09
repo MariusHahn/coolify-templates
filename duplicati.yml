@@ -11,7 +11,7 @@ services:
       - SETTINGS_ENCRYPTION_KEY=${SERVICE_PASSWORD_ENCRYPT}
       - DUPLICATI__WEBSERVICE_PASSWORD=${SERVICE_PASSWORD_WEB}
     volumes:
-      - /var/lib/docker/volumes:/source:ro
+      - /var/lib/docker/volumes:/docker-volumes:ro
       - duplicati-config:/config
       - duplicati-backups:/backups
     healthcheck:
