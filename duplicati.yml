@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   duplicati:
-    image: lscr.io/linuxserver/duplicati:latest
+    image: lscr.io/linuxserver/duplicati:2.2.0
     environment:
       - SERVICE_URL_DUPLICATI_8200
       - PUID=0
