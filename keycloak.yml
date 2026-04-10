@@ -19,9 +19,6 @@ services:
       - KC_PROXY_HEADERS=${KC_PROXY_HEADERS:-xforwarded}
     volumes:
       - keycloak-data:/opt/keycloak/data
-    depends_on:
-      postgres:
-        condition: service_healthy
     healthcheck:
       test:
         [
