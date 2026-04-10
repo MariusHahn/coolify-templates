@@ -5,7 +5,7 @@ services:
       - start
     environment:
       - SERVICE_URL_KEYCLOAK_8080
-      - TZ=${TIMEZONE:-UTC}
+      - TZ=${TZ:-Europe/Berlin}
       - KC_BOOTSTRAP_ADMIN_USERNAME=${SERVICE_USER_ADMIN}
       - KC_BOOTSTRAP_ADMIN_PASSWORD=${SERVICE_PASSWORD_ADMIN}
       - KC_DB=postgres
