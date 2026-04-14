@@ -5,3 +5,5 @@ services:
     restart: unless-stopped
     volumes:
       - home-assistant-matter-server-config:/data/
+    network_mode: "host"
+
