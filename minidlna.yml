@@ -7,7 +7,7 @@ services:
       - MINIDLNA_MEDIA_DIR=/media
     volumes:
       - type: bind
-        source: ${ABSOLUT_PATH_TO_MEDIA}
+        source: ${ABSOLUTE_PATH_TO_MEDIA}
         target: /media
         read_only: true
     network_mode: "host"
