@@ -6,6 +6,7 @@ services:
             - SERVICE_URL_HOMEASSISTANT_8123
             - TZ=${TZ:-Europe/Zurich}
             - DISABLE_JEMALLOC=${DISABLE_JEMALLOC:-false}
+            - CONFIG_DIR=${CONFIG_DIR}
         devices:
             - /dev/ttyUSB0:/dev/ttyUSB0
         volumes:
