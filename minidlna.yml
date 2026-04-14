@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+    minidlna:
+        image: vladgh/minidlna
+        environment:
+            - MINIDLNA_FRIENDLY_NAME=${FRIENDLY_NAME}
+            - MINIDLNA_MEDIA_DIR=/media
+        volumes:
+            - '${ABSOLUT_PATH_TO_MEDIA}:/media'
+        networks:
+            host: {}
+        restart: always
+
