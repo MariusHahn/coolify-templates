@@ -1,6 +1,6 @@
 services:
   homeassistant:
-    image: ghcr.io/home-assistant/home-assistant:2025.10.2
+    image: ghcr.io/home-assistant/home-assistant:stable
     environment:
       - SERVICE_URL_HOMEASSISTANT_8123
       - TZ=${TZ:-Europe/Zurich}
