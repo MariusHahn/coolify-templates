@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+    homeassistant:
+        image: ghcr.io/home-assistant/home-assistant:stable
+        environment:
+            - SERVICE_URL_HOMEASSISTANT_8123
+            - TZ=${TZ:-Europe/Zurich}
+            - DISABLE_JEMALLOC=${DISABLE_JEMALLOC:-false}
+        devices:
+            - /dev/ttyUSB0:/dev/ttyUSB0
+        volumes:
+            - /run/dbus:/run/dbus:ro
+            - type: bind
+              source: ${CONFIG_DIR}
+              target: /config
+        privileged: true
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:8123"]
+            interval: 30s
+            timeout: 10s
+            retries: 3
+            start_period: 60s
