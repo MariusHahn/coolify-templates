@@ -10,11 +10,11 @@ services:
         devices:
             - /dev/ttyUSB0:/dev/ttyUSB0
         volumes:
-            - /run/dbus:/run/dbus:ro
             - type: bind
               source: ${CONFIG_DIR}
               target: /config
               read_only: false
+            - /run/dbus:/run/dbus:ro
         privileged: true
         healthcheck:
             test: ["CMD", "curl", "-f", "http://localhost:8123"]
