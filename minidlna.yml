@@ -6,6 +6,9 @@ services:
       - MINIDLNA_FRIENDLY_NAME=${FRIENDLY_NAME}
       - MINIDLNA_MEDIA_DIR=/media
     volumes:
-      - /${ABSOLUTE_PATH_TO_MEDIA}:/media
+      - type: bind
+        source: ${ABSOLUT_PATH_TO_MEDIA}
+        target: /media
+        read_only: true
     network_mode: "host"
     restart: always
