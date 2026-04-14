@@ -5,6 +5,8 @@ services:
       - SERVICE_URL_HOMEASSISTANT_8123
       - TZ=${TZ:-Europe/Zurich}
       - DISABLE_JEMALLOC=${DISABLE_JEMALLOC:-false}
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
     volumes:
       - homeassistant-config:/config
       - /run/dbus:/run/dbus:ro
