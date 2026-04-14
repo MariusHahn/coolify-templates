@@ -1,0 +1,7 @@
+services:
+  matter-server:
+    image: ghcr.io/matter-js/python-matter-server:stable
+    container_name: matter-server
+    restart: unless-stopped
+    volumes:
+      - home-assistant-matter-server-config:/data/
