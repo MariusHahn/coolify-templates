@@ -17,25 +17,3 @@ services:
       timeout: 10s
       retries: 3
       start_period: 60s
-  matter-server:
-    image: ghcr.io/matter-js/python-matter-server:stable
-    container_name: matter-server
-    restart: unless-stopped
-    volumes:
-      - home-assistant-matter-server-config:/data/
-    network_mode: "host"
-
-
-
-#          Loads default set of integrations. Do not remove.
-#          default_config:
-#
-#          # Configuration for reverse proxy support (required for Coolify)
-#          http:
-#            use_x_forwarded_for: true
-#            trusted_proxies:
-#              - 10.0.0.0/8
-#              - 172.16.0.0/12
-#              - 192.168.0.0/16
-#            ip_ban_enabled: true
-#            login_attempts_threshold: 5

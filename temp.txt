@@ -1,0 +1,27 @@
+
+su -m -c "/usr/share/php/passbolt/bin/cake \
+    passbolt register_user \
+    -u passbolt@hahn.wtf \
+    -f Marius \
+    -l Hahn \
+    -r admin" \
+    -s /bin/sh www-data
+```
+
+
+- type: bind
+    source: ./configuration.yaml
+    target: /config/configuration.yaml
+    content: |
+        # Loads default set of integrations. Do not remove.
+        default_config:
+
+        # Configuration for reverse proxy support (required for Coolify)
+        http:
+        use_x_forwarded_for: true
+        trusted_proxies:
+            - 10.0.0.0/8
+            - 172.16.0.0/12
+            - 192.168.0.0/16
+        ip_ban_enabled: true
+        login_attempts_threshold: 5
