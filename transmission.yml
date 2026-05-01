@@ -16,8 +16,8 @@ services:
             read_only: true
         environment:
             - SERVICE_URL_TRANSMISSION_9091
-            - TRANSMISSION_RPC_USERNAME
-            - TRANSMISSION_RPC_PASSWORD
+            - TRANSMISSION_RPC_USERNAME=${SERVICE_USER_ADMIN}
+            - TRANSMISSION_RPC_PASSWORD=${SERVICE_PASSWORD_ADMIN}
             - TRANSMISSION_RPC_AUTHENTICATION_REQUIRED=true
             - OPENVPN_PROVIDER=custom
             - OPENVPN_CONFIG=vpn-nl.premiumize.me
@@ -30,7 +30,7 @@ services:
             "curl",
             "-sSfL",
             "-u",
-            "${TRANSMISSION_RPC_USERNAME}:${TRANSMISSION_RPC_PASSWORD}",
+            "${SERVICE_USER_ADMIN}:${SERVICE_PASSWORD_ADMIN}",
             "http://localhost:9091/"
           ]
           interval: 30s
