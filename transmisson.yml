@@ -1,0 +1,39 @@
+version: '3.3'
+services:
+    transmission-openvpn:
+        cap_add:
+            - NET_ADMIN
+        volumes:
+          - type: bind
+            source: ${TRANSMISSION_PATH}/data
+            target: "/data"
+          - type: bind
+            source: ${TRANSMISSION_PATH}/config
+            target: "/config"
+          - type: bind
+            source: ${TRANSMISSION_PATH}/vpn
+            target: "/etc/openvpn/custom/"
+            read_only: true
+        environment:
+            - SERVICE_URL_TRANSMISSION_9091
+            - USER=${SERVICE_USER_ADMIN}
+            - PASS=${SERVICE_PASSWORD_ADMIN}
+            - OPENVPN_PROVIDER=custom
+            - OPENVPN_CONFIG=vpn-nl.premiumize.me
+            - OPENVPN_USERNAME=${VPN_USER}
+            - OPENVPN_PASSWORD=${VPN_PW}          
+        healthcheck:
+          test: [
+            "CMD",
+            "curl",
+            "-sSfL",
+            "-u",
+            "${SERVICE_USER_ADMIN}:${SERVICE_PASSWORD_ADMIN}",
+            "http://localhost:9091/"
+          ]
+          interval: 30s
+          timeout: 10s
+          retries: 3
+        image: haugene/transmission-openvpn
+
+          
