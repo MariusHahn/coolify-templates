@@ -21,7 +21,8 @@ services:
             - OPENVPN_PROVIDER=custom
             - OPENVPN_CONFIG=vpn-nl.premiumize.me
             - OPENVPN_USERNAME=${VPN_USER}
-            - OPENVPN_PASSWORD=${VPN_PW}          
+            - OPENVPN_PASSWORD=${VPN_PW}
+            - LOCAL_NETWORK=${LOCAL_SUBNET}         
         healthcheck:
           test: [
             "CMD",
